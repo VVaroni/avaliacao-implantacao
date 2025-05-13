@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação da Implantação - Clínica nas Nuvens</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #8fefbc;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 200px;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    .question-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .emojis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .emojis span {
+      transition: transform 0.2s;
+    }
+    .emojis span:hover {
+      transform: scale(1.3);
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .agradecimento {
+      text-align: center;
+      margin-top: 30px;
+      font-style: italic;
+      color: #2f4f4f;
+    }
+    .emoji-label {
+      font-size: 10px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .emoji-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://clinicanasnuvens.com.br/images/svg/logo-novo.svg?v=3" alt="Logo Clínica nas Nuvens" class="logo">
+  <h1>Avaliação da Implantação</h1>
+  <p style="text-align:center">Como você avalia os seguintes aspectos do nosso processo?</p>
+  <form onsubmit="handleSubmit(event)">
+    <div class="question">
+      <div class="question-title">Nome da clínica *</div>
+      <input type="text" id="nomeClinica" name="nomeClinica" required placeholder="Digite o nome da clínica...">
+    </div>
+    <div class="question">
+      <div class="question-title">1. Clareza nas explicações durante as reuniões</div>
+      <div class="emojis" data-question="clareza">
+        <div class="emoji-wrapper"><span>😡</span><div class="emoji-label">Péssimo</div></div>
+        <div class="emoji-wrapper"><span>😕</span><div class="emoji-label">Ruim</div></div>
+        <div class="emoji-wrapper"><span>😐</span><div class="emoji-label">Regular</div></div>
+        <div class="emoji-wrapper"><span>🙂</span><div class="emoji-label">Bom</div></div>
+        <div class="emoji-wrapper"><span>😁</span><div class="emoji-label">Ótimo</div></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-title">2. Tempo de resposta da equipe</div>
+      <div class="emojis" data-question="resposta">
+        <div class="emoji-wrapper"><span>😡</span><div class="emoji-label">Péssimo</div></div>
+        <div class="emoji-wrapper"><span>😕</span><div class="emoji-label">Ruim</div></div>
+        <div class="emoji-wrapper"><span>😐</span><div class="emoji-label">Regular</div></div>
+        <div class="emoji-wrapper"><span>🙂</span><div class="emoji-label">Bom</div></div>
+        <div class="emoji-wrapper"><span>😁</span><div class="emoji-label">Ótimo</div></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-title">3. Facilidade de uso do sistema após implantação</div>
+      <div class="emojis" data-question="facilidade">
+        <div class="emoji-wrapper"><span>😡</span><div class="emoji-label">Péssimo</div></div>
+        <div class="emoji-wrapper"><span>😕</span><div class="emoji-label">Ruim</div></div>
+        <div class="emoji-wrapper"><span>😐</span><div class="emoji-label">Regular</div></div>
+        <div class="emoji-wrapper"><span>🙂</span><div class="emoji-label">Bom</div></div>
+        <div class="emoji-wrapper"><span>😁</span><div class="emoji-label">Ótimo</div></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-title">4. Comunicação geral com a equipe</div>
+      <div class="emojis" data-question="comunicacao">
+        <div class="emoji-wrapper"><span>😡</span><div class="emoji-label">Péssimo</div></div>
+        <div class="emoji-wrapper"><span>😕</span><div class="emoji-label">Ruim</div></div>
+        <div class="emoji-wrapper"><span>😐</span><div class="emoji-label">Regular</div></div>
+        <div class="emoji-wrapper"><span>🙂</span><div class="emoji-label">Bom</div></div>
+        <div class="emoji-wrapper"><span>😁</span><div class="emoji-label">Ótimo</div></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-title">5. Satisfação geral com o processo</div>
+      <div class="emojis" data-question="geral">
+        <div class="emoji-wrapper"><span>😡</span><div class="emoji-label">Péssimo</div></div>
+        <div class="emoji-wrapper"><span>😕</span><div class="emoji-label">Ruim</div></div>
+        <div class="emoji-wrapper"><span>😐</span><div class="emoji-label">Regular</div></div>
+        <div class="emoji-wrapper"><span>🙂</span><div class="emoji-label">Bom</div></div>
+        <div class="emoji-wrapper"><span>😁</span><div class="emoji-label">Ótimo</div></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-title">Comentário (opcional)</div>
+      <textarea name="comentario" placeholder="Compartilhe sua opinião..."></textarea>
+    </div>
+    <button type="submit">Enviar Avaliação</button>
+  </form>
+  <div class="agradecimento">
+    Agradecemos sinceramente por sua avaliação. Sua opinião é muito importante para nós!
+  </div>
+  <script>
+    const respostas = {};
+    document.querySelectorAll('.emojis').forEach(div => {
+      div.querySelectorAll('span').forEach((emoji, index) => {
+        emoji.addEventListener('click', () => {
+          const name = div.dataset.question;
+          respostas[name] = index + 1;
+          div.querySelectorAll('span').forEach(e => e.style.backgroundColor = '');
+          emoji.style.backgroundColor = '#d3f8d3';
+        });
+      });
+    });
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const nomeClinica = document.getElementById('nomeClinica').value.trim();
+      if (!nomeClinica) {
+        alert('Por favor, preencha o nome da clínica.');
+        return;
+      }
+      const comentario = document.querySelector('textarea').value;
+      const url = 'https://script.google.com/macros/s/AKfycbynTJuwAE6TF_5PCKEEoI6VVqIEkXKXy8OvUSbrO4Q8ieFqoSKUZPapuadHnYqjIWNOUg/exec';
+
+      const formData = new FormData();
+      formData.append('nomeClinica', nomeClinica);
+      formData.append('comentario', comentario);
+      Object.entries(respostas).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+
+      fetch(url, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Obrigado pela sua avaliação!");
+          document.querySelector('form').reset();
+          Object.keys(respostas).forEach(k => delete respostas[k]);
+        } else {
+          alert("Erro ao enviar. Tente novamente mais tarde.");
+        }
+      })
+      .catch(() => alert("Erro de conexão. Tente novamente mais tarde."));
+    }
+  </script>
+</body>
+</html>
